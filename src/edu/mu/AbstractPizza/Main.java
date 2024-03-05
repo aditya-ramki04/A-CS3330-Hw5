@@ -1,4 +1,4 @@
-package edu.mu;
+package edu.mu.AbstractPizza;
 
 public class Main {
 

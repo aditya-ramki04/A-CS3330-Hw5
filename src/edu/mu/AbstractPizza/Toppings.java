@@ -1,4 +1,4 @@
-package edu.mu;
+package edu.mu.AbstractPizza;
 
 public enum Toppings {
 	TOMATO(1.50),
