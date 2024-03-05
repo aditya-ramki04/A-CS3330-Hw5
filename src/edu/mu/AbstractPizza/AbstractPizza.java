@@ -15,12 +15,21 @@ public abstract class AbstractPizza
     public AbstractPizza() 
     {
         this.toppingList = new ArrayList<>();
-        this.totalPrice = 0.0;
-        this.pizzaOrderID = orderIDCounter++;
     }
 
     // Setter and getter methods for toppingList
-    public void setToppingList(List<Toppings> toppingList) {
+    public AbstractPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
+			ICookingStrategy cookingStrategy, double cookingPrice) 
+    {
+		this.toppingList = toppingList;
+		this.priceWithoutToppings = priceWithoutToppings;
+		this.totalPrice = totalPrice;
+		this.pizzaOrderID = pizzaOrderID;
+		this.cookingStrategy = cookingStrategy;
+		this.cookingPrice = cookingPrice;
+	}
+
+	public void setToppingList(List<Toppings> toppingList) {
         this.toppingList = toppingList;
     }
 
@@ -48,7 +57,7 @@ public abstract class AbstractPizza
     public int getPizzaOrderID() {
         return pizzaOrderID;
     }
-
+x
     public static int getOrderIDCounter() {
         return orderIDCounter;
     }
@@ -68,7 +77,4 @@ public abstract class AbstractPizza
     public void setCookingPrice(double cookingPrice) {
         this.cookingPrice = cookingPrice;
     }
-
-    // Abstract method for calculating total price
-    public abstract void calculateTotalPrice();
 }
