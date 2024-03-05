@@ -2,6 +2,8 @@ package edu.mu.AbstractPizza;
 
 import java.util.*;
 
+import edu.mu.Cooking.ICookingStrategy;
+
 public abstract class AbstractPizza 
 {
 	protected List<Toppings> toppingList;
@@ -12,11 +14,7 @@ public abstract class AbstractPizza
     protected ICookingStrategy cookingStrategy;
     protected double cookingPrice;
     
-    public AbstractPizza() 
-    {
-        this.toppingList = new ArrayList<>();
-    }
-
+    
     // Setter and getter methods for toppingList
     public AbstractPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
 			ICookingStrategy cookingStrategy, double cookingPrice) 
@@ -27,6 +25,7 @@ public abstract class AbstractPizza
 		this.pizzaOrderID = pizzaOrderID;
 		this.cookingStrategy = cookingStrategy;
 		this.cookingPrice = cookingPrice;
+		this.toppingList = new ArrayList<>();
 	}
 
 	public void setToppingList(List<Toppings> toppingList) {
@@ -57,7 +56,7 @@ public abstract class AbstractPizza
     public int getPizzaOrderID() {
         return pizzaOrderID;
     }
-x
+
     public static int getOrderIDCounter() {
         return orderIDCounter;
     }
