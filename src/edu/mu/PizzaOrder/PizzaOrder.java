@@ -1,10 +1,18 @@
 package edu.mu.PizzaOrder;
 
+import java.util.List;
+
 import edu.mu.AbstractPizza.*;
+import edu.mu.Cooking.*;
+
 
 
 public class PizzaOrder 
 {
+	private PizzaCookingFactory pizzaFactory;
+    private ICookingStrategy cookingStrategy;
+    private List<AbstractPizza> pizzaOrderList;
+	
 	public void printListOfToppingsByPizzaOrderID(int orderID)
 	{
 		
