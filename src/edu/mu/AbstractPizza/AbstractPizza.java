@@ -14,6 +14,8 @@ public abstract class AbstractPizza
     protected ICookingStrategy cookingStrategy;
     protected double cookingPrice;
     
+    protected abstract double addTopingsToPrice(double priceWithoutToppings);
+    public abstract double updatePizzaPrice();
     
     // Setter and getter methods for toppingList
     public AbstractPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
