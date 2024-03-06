@@ -13,6 +13,33 @@ public class SupremePizza extends AbstractPizza {
 		// TODO Auto-generated constructor stub
 	}
 
+	protected double addTopingsToPrice(double priceWithoutToppings)
+	{
+		this.priceWithoutToppings = priceWithoutToppings;
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.BELL_PEPPER);
+		toppingList.add(Toppings.ITALIAN_SAUSAGE);
+		toppingList.add(Toppings.PEPPERONI);
+		toppingList.add(Toppings.BLACK_OLIVE);
+		toppingList.add(Toppings.MUSHROOM);
+		for(Toppings t:  toppingList)
+		{
+			totalPrice += t.getToppingPrice();
+		}
+		return totalPrice;
+	}
+	
+	public double updatePizzaPrice()
+	{
+		totalPrice = priceWithoutToppings;
+		for(Toppings t: toppingList)
+		{
+			totalPrice += t.getToppingPrice();
+		}
+		return totalPrice;
+	}
+	
 	@Override
 	public String toString() {
 		return "SupremePizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
