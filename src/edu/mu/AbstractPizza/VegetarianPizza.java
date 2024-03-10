@@ -6,6 +6,11 @@ import edu.mu.Cooking.ICookingStrategy;
 
 public class VegetarianPizza extends AbstractPizza{
 
+	//nmc Added default constructor to fix PizzaCookingFactory "The constructor VegetarianPizza() is undefined" not sure if this is right will come back to later 
+	//default constructor
+	public VegetarianPizza() {
+		super(null, 0.0, 0.0, getOrderIDCounter(), null, 0.0);
+	}
 	public VegetarianPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
 			ICookingStrategy cookingStrategy, double cookingPrice) {
 		super(toppingList, priceWithoutToppings, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
