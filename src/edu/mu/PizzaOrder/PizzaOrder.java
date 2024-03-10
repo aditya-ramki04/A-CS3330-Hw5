@@ -73,10 +73,18 @@ public class PizzaOrder
 		
 	}
 	
-	public double checkout()
+	public double checkout() throws Exception
 	{
-		return 0;
+		if (isThereAnyUncookedPizza()) {
+	        throw new Exception("Cannot checkout: There are uncooked pizzas.");
+	    }
 		
+		double total = 0.0;
+	    for (AbstractPizza pizza : pizzaOrderList) {
+	        total += pizza.getTotalPrice();
+	    }
+
+	    return total;
 	}
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType)
