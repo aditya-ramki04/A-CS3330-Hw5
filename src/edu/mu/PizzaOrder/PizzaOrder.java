@@ -28,7 +28,7 @@ public class PizzaOrder
 		
 	}
 	
-	//start nmc
+	//Start nmc
 	//iterates through the list of pizza orders and checks if the oderID
 	//matches the given parameter and will return pizza if match
 	public AbstractPizza getPizzaByOrderID(int orderID)
@@ -82,12 +82,27 @@ public class PizzaOrder
 		    return false;
 	}
 	
-	public boolean removeToppingFromPizza(int orderID, Toppings topping)
-	{
-		return false;
-		
+	//Removes the specified topping from the pizza with the given order ID.
+	//If the topping is successfully removed, updates the pizza price and returns true.
+	//If the topping doesn't exist in the topping list or no pizza is found with the given order ID, returns false.
+	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
+	    AbstractPizza pizza = getPizzaByOrderID(orderID);
+
+	    if (pizza != null) {
+	        List<Toppings> toppingList = pizza.getToppingList();
+
+	        for (Toppings currentTopping : toppingList) {
+	            if (currentTopping.equals(topping)) {
+	                toppingList.remove(currentTopping);
+	                pizza.updatePizzaPrice();
+
+	                return true; 
+	            }
+	        }
+	    }
+	    return false;
 	}
-	//end nmc
+	//End nmc
 	
 	
 	//Aditya R
