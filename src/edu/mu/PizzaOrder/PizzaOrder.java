@@ -1,7 +1,6 @@
 package edu.mu.PizzaOrder;
 import java.util.ArrayList;
 import java.util.List;
-
 import edu.mu.AbstractPizza.*;
 import edu.mu.Cooking.*;
 
@@ -89,8 +88,37 @@ public class PizzaOrder
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType)
 	{
-		return false;
+		//gets the specific pizzaorder
+		AbstractPizza pizza  = null;
+		for (AbstractPizza p : pizzaOrderList) {
+	        if (p.getPizzaOrderID() == orderID) {
+	            pizza = p;
+	            break;
+	        }
+	    }
 		
+		if (pizza == null) {
+	        return false;
+	    }
+		
+		//gets cooking strategy
+		ICookingStrategy cookingStrategy = null;
+		
+		switch (cookingStrategyType) {
+        case MICROWAVE:
+            cookingStrategy = new MicrowaveCookingStrategy();
+            break;
+        case CONVENTIONAL_OVEN:
+            cookingStrategy = new ConventionalOvenCookingStrategy();
+            break;
+        case BRICK_OVEN:
+            cookingStrategy = new BrickOvenCookingStrategy();
+            break;
+        default:
+            return false; // Invalid cooking strategy type
+		}
+		
+		return (cookingStrategy.cook(pizza)); //cook function returns a bool value so we goods
 	}
 
 }
