@@ -41,16 +41,27 @@ public class PizzaOrder
 		return null;
 	}
 	
-	public boolean addPizzaToCart(PizzaType pizzaType)
-	{	
-		return false;
-	}
-	
-	public boolean addNewToppingToPizza(int orderID, Toppings topping)
-	{
-		return false;
-		
-	}
+	//takes PizzaType as an input and uses pizzafactory to create pizza and adds to pizza cart
+	//if it was created it will return true otherwise false
+	//it can throw a PizzaCreationException as-well
+	public boolean addPizzaToCart(PizzaType pizzaType) {
+			try {
+				AbstractPizza newPizza = pizzaFactory.createPizza(pizzaType);
+				if (newPizza != null) {
+					pizzaOrderList.add(newPizza);
+					return true;
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        return false;
+		}
+
+
+	public boolean addNewToppingToPizza(int orderID, Toppings topping){
+		return true;
+		}
 	
 	public boolean removeToppingFromPizza(int orderID, Toppings topping)
 	{
