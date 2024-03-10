@@ -1,5 +1,5 @@
 package edu.mu.PizzaOrder;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.mu.AbstractPizza.*;
@@ -12,6 +12,12 @@ public class PizzaOrder
 	private PizzaCookingFactory pizzaFactory;
     private ICookingStrategy cookingStrategy;
     private List<AbstractPizza> pizzaOrderList;
+    
+    public PizzaOrder() {
+        // Instantiate the pizzaFactory, cookingStrategy, and pizzaOrderList attributes
+        this.pizzaFactory = new PizzaCookingFactory();
+        this.pizzaOrderList = new ArrayList<>();
+    }
 	
 	public void printListOfToppingsByPizzaOrderID(int orderID)
 	{
@@ -54,9 +60,16 @@ public class PizzaOrder
 	}
 	//end nmc
 	
+	
+	//Aditya R
 	public boolean isThereAnyUncookedPizza()
 	{
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+	        if (pizza.getCookingStrategy() == null) { //basically if theres no strat then the pizza isnt cooked yet
+	            return true; 
+	        }
+	    }
+	    return false; 
 		
 	}
 	
