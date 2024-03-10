@@ -23,15 +23,22 @@ public class PizzaOrder
 		
 	}
 	
+	//start nmc
+	//iterates through the list of pizza orders and checks if the oderID
+	//matches the given parameter and will return pizza if match
 	public AbstractPizza getPizzaByOrderID(int orderID)
 	{
+		for(AbstractPizza pizza : pizzaOrderList) {
+			if(pizza.getPizzaOrderID() == orderID) {
+				return pizza;
+			}
+		}
 		return null;
 	}
 	
 	public boolean addPizzaToCart(PizzaType pizzaType)
-	{
+	{	
 		return false;
-		
 	}
 	
 	public boolean addNewToppingToPizza(int orderID, Toppings topping)
@@ -45,6 +52,7 @@ public class PizzaOrder
 		return false;
 		
 	}
+	//end nmc
 	
 	public boolean isThereAnyUncookedPizza()
 	{
