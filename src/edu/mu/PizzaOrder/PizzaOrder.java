@@ -59,9 +59,28 @@ public class PizzaOrder
 		}
 
 
+	//Adds the given topping to the pizza with the specified order ID.
+	//If the topping doesn't already exist in the pizza's topping list,
+	//it is added, and the pizza price is updated.
+	//Returns true if the topping is added successfully; otherwise, returns false.
+	//If the pizza with the given order ID is not found, it also returns false.
 	public boolean addNewToppingToPizza(int orderID, Toppings topping){
-		return true;
+		AbstractPizza pizza = getPizzaByOrderID(orderID);
+		
+		if (pizza != null) {
+	        List<Toppings> toppingList = pizza.getToppingList();
+
+	        if (!toppingList.contains(topping)) {
+	            toppingList.add(topping);
+	            pizza.updatePizzaPrice();
+
+	            return true;
+	        } else {
+	            return false;
+	        }
 		}
+		    return false;
+	}
 	
 	public boolean removeToppingFromPizza(int orderID, Toppings topping)
 	{
