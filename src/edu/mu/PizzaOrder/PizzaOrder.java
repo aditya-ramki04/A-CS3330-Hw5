@@ -40,7 +40,12 @@ public class PizzaOrder
 	
 	public void printPizzaOrderCart(int orderID)
 	{
-		
+        System.out.println("Order ID: " + orderID + " Pizza Order:");
+                
+        for (int i = 0; i < pizzaOrderList.size(); i++) 
+        {
+            System.out.println((i + 1) + ". " + pizzaOrderList.get(i));
+        }
 	}
 	
 	//Start nmc
