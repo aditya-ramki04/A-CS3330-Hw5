@@ -28,7 +28,7 @@ public class PizzaOrder
 		
 	}
 	
-	//start nmc
+	//Start nmc
 	//iterates through the list of pizza orders and checks if the oderID
 	//matches the given parameter and will return pizza if match
 	public AbstractPizza getPizzaByOrderID(int orderID)
@@ -41,23 +41,68 @@ public class PizzaOrder
 		return null;
 	}
 	
-	public boolean addPizzaToCart(PizzaType pizzaType)
-	{	
-		return false;
+	//takes PizzaType as an input and uses pizzafactory to create pizza and adds to pizza cart
+	//if it was created it will return true otherwise false
+	//it can throw a PizzaCreationException as-well
+	public boolean addPizzaToCart(PizzaType pizzaType) {
+			try {
+				AbstractPizza newPizza = pizzaFactory.createPizza(pizzaType);
+				if (newPizza != null) {
+					pizzaOrderList.add(newPizza);
+					return true;
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        return false;
+		}
+
+
+	//Adds the given topping to the pizza with the specified order ID.
+	//If the topping doesn't already exist in the pizza's topping list,
+	//it is added, and the pizza price is updated.
+	//Returns true if the topping is added successfully; otherwise, returns false.
+	//If the pizza with the given order ID is not found, it also returns false.
+	public boolean addNewToppingToPizza(int orderID, Toppings topping){
+		AbstractPizza pizza = getPizzaByOrderID(orderID);
+		
+		if (pizza != null) {
+	        List<Toppings> toppingList = pizza.getToppingList();
+
+	        if (!toppingList.contains(topping)) {
+	            toppingList.add(topping);
+	            pizza.updatePizzaPrice();
+
+	            return true;
+	        } else {
+	            return false;
+	        }
+		}
+		    return false;
 	}
 	
-	public boolean addNewToppingToPizza(int orderID, Toppings topping)
-	{
-		return false;
-		
+	//Removes the specified topping from the pizza with the given order ID.
+	//If the topping is successfully removed, updates the pizza price and returns true.
+	//If the topping doesn't exist in the topping list or no pizza is found with the given order ID, returns false.
+	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
+	    AbstractPizza pizza = getPizzaByOrderID(orderID);
+
+	    if (pizza != null) {
+	        List<Toppings> toppingList = pizza.getToppingList();
+
+	        for (Toppings currentTopping : toppingList) {
+	            if (currentTopping.equals(topping)) {
+	                toppingList.remove(currentTopping);
+	                pizza.updatePizzaPrice();
+
+	                return true; 
+	            }
+	        }
+	    }
+	    return false;
 	}
-	
-	public boolean removeToppingFromPizza(int orderID, Toppings topping)
-	{
-		return false;
-		
-	}
-	//end nmc
+	//End nmc
 	
 	
 	//Aditya R
