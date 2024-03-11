@@ -9,7 +9,7 @@ import edu.mu.Cooking.*;
 public class PizzaOrder 
 {
 	private PizzaCookingFactory pizzaFactory;
-    private ICookingStrategy cookingStrategy;
+    private ICookingStrategy cookingStrategy = null;
     private List<AbstractPizza> pizzaOrderList;
     
     public PizzaOrder() {
@@ -20,7 +20,22 @@ public class PizzaOrder
 	
 	public void printListOfToppingsByPizzaOrderID(int orderID)
 	{
-		
+		AbstractPizza pizza = getPizzaByOrderID(orderID);
+
+        if (pizza != null) 
+        {
+            System.out.println("Toppings for Pizza Order ID " + orderID + ":");
+            List<Toppings> toppingsList = pizza.getToppingList();
+
+            for (Toppings topping : toppingsList) 
+            {
+                System.out.println(topping);
+            }
+        } 
+        else 
+        {
+            System.out.println("Pizza Order with ID " + orderID + " not found.");
+        }
 	}
 	
 	public void printPizzaOrderCart(int orderID)
@@ -147,7 +162,6 @@ public class PizzaOrder
 	    }
 		
 		//gets cooking strategy
-		ICookingStrategy cookingStrategy = null;
 		
 		switch (cookingStrategyType) {
         case MICROWAVE:
