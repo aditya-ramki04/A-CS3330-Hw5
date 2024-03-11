@@ -6,6 +6,7 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
     public boolean cook(AbstractPizza pizza) {
         pizza.setCookingStrategy(this); //sets the cooking strat
         pizza.setTotalPrice(pizza.getTotalPrice() + 10.0); //updates price
+        pizza.setCookingPrice(10.0);
         return true;
     }
 }
