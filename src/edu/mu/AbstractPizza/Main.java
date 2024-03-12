@@ -32,7 +32,6 @@ public class Main {
         } catch (Exception e) {
             System.err.println("Error during checkout: " + e.getMessage());
         }
-
       
     
         // Add new topping to a pizza

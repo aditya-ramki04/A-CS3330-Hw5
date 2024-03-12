@@ -38,7 +38,7 @@ public class PizzaOrder
 	
 	public void printPizzaOrderCart(int orderID)
 	{
-		System.out.println("All pizzas in Order: " + orderID + ":");
+		System.out.println("All pizzas in Order " + orderID + ":");
 		if(pizzaOrderList != null) 
 		{
 			for(AbstractPizza pizza : pizzaOrderList) 
@@ -57,9 +57,6 @@ public class PizzaOrder
 	//matches the given parameter and will return pizza if match
 	public AbstractPizza getPizzaByOrderID(int orderID)
 	{
-		
-		
-		
 		for(AbstractPizza pizza : pizzaOrderList) {
 			if(pizza.getPizzaOrderID() == orderID) {
 				return pizza;
@@ -98,8 +95,7 @@ public class PizzaOrder
 	            toppingList.add(topping);
 	            pizza.updatePizzaPrice();
 	            
-	            
-	            pizza.setToppingList(toppingList);
+	 	        pizza.setToppingList(toppingList);
 	            return true;
 	        } 
 	        else {

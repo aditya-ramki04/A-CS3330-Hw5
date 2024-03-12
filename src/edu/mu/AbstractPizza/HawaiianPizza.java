@@ -15,12 +15,7 @@ public class HawaiianPizza extends AbstractPizza {
 		toppingList.add(Toppings.PINEAPPLE);
 		orderIDCounter = 1 + orderIDCounter;
 
-		totalPrice = addTopingsToPrice(2.5);
-		updatePizzaPrice();
-		
-		
-		totalPrice = addTopingsToPrice(9909);
-		
+		totalPrice = addTopingsToPrice(2.50);
 		updatePizzaPrice();
 	}
 	

@@ -9,7 +9,14 @@ public class MargheritaPizza extends AbstractPizza {
 	//nmc Added default constructor to fix PizzaCookingFactory "The constructor MargheritaPizza() is undefined" not sure if this is right will come back to later 
 	//default constructor
 	public MargheritaPizza() {
-		super(null, 0.0, 0.0, getOrderIDCounter(), null, 0.0);
+		super(null, 2.5, 0.0, getOrderIDCounter(), null,0.0);
+		toppingList.add(Toppings.CANADIAN_BACON);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.PINEAPPLE);
+		orderIDCounter = 1 + orderIDCounter;
+
+		totalPrice = addTopingsToPrice(2.50);
+		updatePizzaPrice();
 	}
 
 	public MargheritaPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
