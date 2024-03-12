@@ -9,7 +9,7 @@ public class Main {
 		PizzaOrder order = new PizzaOrder();
 
         // Add pizzas to the cart
-        order.addPizzaToCart(PizzaType.MARGHERITA);
+        order.addPizzaToCart(PizzaType.HAWAIIAN);
         order.addPizzaToCart(PizzaType.VEGETARIAN);
 
         // Print pizza order cart
@@ -38,6 +38,20 @@ public class Main {
         } catch (Exception e) {
             System.err.println("Error during checkout: " + e.getMessage());
         }
+		
+//		HawaiianPizza hawaiianPizza1 = new HawaiianPizza();
+//        System.out.println("Margherita Pizza 1:");
+//        System.out.println(hawaiianPizza1);
+
+        // Creating a MargheritaPizza object using the copy constructor
+//        MargheritaPizza hawaiianPizza2 = new Hawaiian();
+//        System.out.println("\nMargherita Pizza 2 (Copy of Margherita Pizza 1):");
+//        System.out.println(margheritaPizza2);
+//        
+//        // Testing updatePizzaPrice method
+//        margheritaPizza2.updatePizzaPrice();
+//        System.out.println("\nUpdated Margherita Pizza 2:");
+//        System.out.println(margheritaPizza2);
 	}
 
 }

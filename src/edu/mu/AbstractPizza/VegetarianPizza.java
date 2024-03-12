@@ -9,7 +9,14 @@ public class VegetarianPizza extends AbstractPizza{
 	//nmc Added default constructor to fix PizzaCookingFactory "The constructor VegetarianPizza() is undefined" not sure if this is right will come back to later 
 	//default constructor
 	public VegetarianPizza() {
-		super(null, 0.0, 0.0, getOrderIDCounter(), null, 0.0);
+		super(null, 33.0, 838.0, getOrderIDCounter(), null, 233424.0);
+		toppingList.add(Toppings.TOMATO);
+		toppingList.add(Toppings.CHEESE);
+		toppingList.add(Toppings.BELL_PEPPER);
+		toppingList.add(Toppings.BLACK_OLIVE);
+		toppingList.add(Toppings.MUSHROOM);
+		orderIDCounter = 1 + orderIDCounter;
+		
 	}
 	public VegetarianPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
 			ICookingStrategy cookingStrategy, double cookingPrice) {
@@ -31,11 +38,11 @@ public class VegetarianPizza extends AbstractPizza{
 	{
 		this.priceWithoutToppings = priceWithoutToppings;
 		totalPrice = priceWithoutToppings;
-		toppingList.add(Toppings.TOMATO);
-		toppingList.add(Toppings.CHEESE);
-		toppingList.add(Toppings.BELL_PEPPER);
-		toppingList.add(Toppings.BLACK_OLIVE);
-		toppingList.add(Toppings.MUSHROOM);
+//		toppingList.add(Toppings.TOMATO);
+//		toppingList.add(Toppings.CHEESE);
+//		toppingList.add(Toppings.BELL_PEPPER);
+//		toppingList.add(Toppings.BLACK_OLIVE);
+//		toppingList.add(Toppings.MUSHROOM);
 		
 		for (Toppings t: toppingList)
 		{

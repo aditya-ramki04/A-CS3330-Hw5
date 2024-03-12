@@ -10,7 +10,7 @@ public abstract class AbstractPizza
 	protected double priceWithoutToppings;
     protected double totalPrice;
     protected int pizzaOrderID;
-    protected static int orderIDCounter = 1000; 
+    protected static int orderIDCounter = 0; 
     protected ICookingStrategy cookingStrategy;
     protected double cookingPrice;
     
@@ -28,6 +28,17 @@ public abstract class AbstractPizza
 		this.cookingStrategy = cookingStrategy;
 		this.cookingPrice = cookingPrice;
 		this.toppingList = new ArrayList<>();
+	}
+    public AbstractPizza(AbstractPizza otherPizza) {
+        this.priceWithoutToppings = otherPizza.priceWithoutToppings;
+        this.totalPrice = otherPizza.totalPrice;
+        this.toppingList = new ArrayList<>(otherPizza.toppingList);
+        this.pizzaOrderID = otherPizza.pizzaOrderID;
+    }
+
+	public AbstractPizza(double priceWithoutToppings) {
+		// TODO Auto-generated constructor stub\
+		this.priceWithoutToppings = priceWithoutToppings;
 	}
 
 	public void setToppingList(List<Toppings> toppingList) {
