@@ -14,13 +14,13 @@ public class HawaiianPizza extends AbstractPizza {
 		toppingList.add(Toppings.CHEESE);
 		toppingList.add(Toppings.PINEAPPLE);
 		orderIDCounter = 1 + orderIDCounter;
-		totalPrice = addTopingsToPrice(9909);
+		totalPrice = addTopingsToPrice(2.5);
 		updatePizzaPrice();
-		
 		
 		
 	}
 	
+
 //
 //	public HawaiianPizza(double priceWithoutToppings) {
 //        super(priceWithoutToppings);
@@ -35,11 +35,11 @@ public class HawaiianPizza extends AbstractPizza {
         // Copy additional attributes specific to HawaiianPizza if any
     }
 	
-//	public HawaiianPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
-//			ICookingStrategy cookingStrategy, double cookingPrice) {
-//		super(toppingList, priceWithoutToppings, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
-//		// TODO Auto-generated constructor stub
-//	}
+	public HawaiianPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
+			ICookingStrategy cookingStrategy, double cookingPrice) {
+		super(toppingList, priceWithoutToppings, totalPrice, pizzaOrderID, cookingStrategy, cookingPrice);
+		// TODO Auto-generated constructor stub
+	}
 
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{

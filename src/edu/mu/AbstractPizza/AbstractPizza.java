@@ -41,6 +41,7 @@ public abstract class AbstractPizza
 		this.priceWithoutToppings = priceWithoutToppings;
 	}
 
+
 	public void setToppingList(List<Toppings> toppingList) {
         this.toppingList = toppingList;
     }
