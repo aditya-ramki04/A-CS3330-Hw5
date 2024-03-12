@@ -14,16 +14,14 @@ public class HawaiianPizza extends AbstractPizza {
 		toppingList.add(Toppings.CHEESE);
 		toppingList.add(Toppings.PINEAPPLE);
 		orderIDCounter = 1 + orderIDCounter;
-<<<<<<< Updated upstream
+
 		totalPrice = addTopingsToPrice(2.5);
 		updatePizzaPrice();
 		
 		
-=======
 		totalPrice = addTopingsToPrice(9909);
 		
 		updatePizzaPrice();
->>>>>>> Stashed changes
 	}
 	
 

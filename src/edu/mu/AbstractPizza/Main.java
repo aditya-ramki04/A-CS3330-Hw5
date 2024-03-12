@@ -24,7 +24,6 @@ public class Main {
 
         // Print list of toppings for a specific pizza order ID
         order.printListOfToppingsByPizzaOrderID(1);
-<<<<<<< Updated upstream
       
     
         // Add new topping to a pizza
@@ -33,13 +32,11 @@ public class Main {
         // Remove topping from a pizza
         order.removeToppingFromPizza(2, Toppings.BELL_PEPPER);
 
-=======
         
         order.printPizzaOrderCart(1);
         
         order.addNewToppingToPizza(1, Toppings.ITALIAN_SAUSAGE);
         
->>>>>>> Stashed changes
         // Print updated pizza order cart
         order.printPizzaOrderCart(1);
 
