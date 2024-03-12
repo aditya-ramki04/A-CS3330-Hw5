@@ -1,5 +1,6 @@
 package edu.mu.AbstractPizza;
 
+import java.util.Arrays;
 import java.util.List;
 
 import edu.mu.Cooking.ICookingStrategy;
@@ -9,7 +10,7 @@ public class VegetarianPizza extends AbstractPizza{
 	//nmc Added default constructor to fix PizzaCookingFactory "The constructor VegetarianPizza() is undefined" not sure if this is right will come back to later 
 	//default constructor
 	public VegetarianPizza() {
-		super(null, 33.0, 838.0, getOrderIDCounter(), null, 233424.0);
+		super(null, 1.50, 0.0, getOrderIDCounter(), null, 0.0);
 		toppingList.add(Toppings.TOMATO);
 		toppingList.add(Toppings.CHEESE);
 		toppingList.add(Toppings.BELL_PEPPER);
@@ -26,7 +27,7 @@ public class VegetarianPizza extends AbstractPizza{
 
 	@Override
 	public String toString() {
-		return "VegetarianPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+		return "VegetarianPizza [toppingList=" + Arrays.toString(toppingList.toArray()) + ", priceWithoutToppings=" + priceWithoutToppings
 				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingPrice=" + cookingPrice
 				+ ", getToppingList()=" + getToppingList() + ", getPriceWithoutToppings()=" + getPriceWithoutToppings()
 				+ ", getTotalPrice()=" + getTotalPrice() + ", getPizzaOrderID()=" + getPizzaOrderID()
@@ -36,7 +37,7 @@ public class VegetarianPizza extends AbstractPizza{
 	
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{
-		this.priceWithoutToppings = priceWithoutToppings;
+		//this.priceWithoutToppings = priceWithoutToppings;
 		totalPrice = priceWithoutToppings;
 //		toppingList.add(Toppings.TOMATO);
 //		toppingList.add(Toppings.CHEESE);

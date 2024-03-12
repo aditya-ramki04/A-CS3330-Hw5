@@ -9,11 +9,14 @@ public class HawaiianPizza extends AbstractPizza {
 	//nmc Added default constructor to fix PizzaCookingFactory "The constructor HawaiianPizza() is undefined" not sure if this is right will come back to later 
 	//default constructor
 	public HawaiianPizza() {
-		super(null, 2.50, 0.0, getOrderIDCounter(), null,0.0);
+		super(null, 2.5, 0.0, getOrderIDCounter(), null,0.0);
 		toppingList.add(Toppings.CANADIAN_BACON);
 		toppingList.add(Toppings.CHEESE);
 		toppingList.add(Toppings.PINEAPPLE);
 		orderIDCounter = 1 + orderIDCounter;
+		totalPrice = addTopingsToPrice(9909);
+		updatePizzaPrice();
+		
 		
 		
 	}
@@ -41,13 +44,14 @@ public class HawaiianPizza extends AbstractPizza {
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{
 		double totalPrice = priceWithoutToppings;
-	//	this.priceWithoutToppings = priceWithoutToppings;
+		//this.priceWithoutToppings = priceWithoutToppings;
 //		toppingList.add(Toppings.CANADIAN_BACON);
 //		toppingList.add(Toppings.PINEAPPLE);
 //		toppingList.add(Toppings.CHEESE);
 		for(Toppings t:  toppingList)
 		{
 			totalPrice += t.getToppingPrice();
+			System.out.println(t.getToppingPrice());
 		}
 		return totalPrice;
 	}
