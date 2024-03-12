@@ -17,6 +17,8 @@ public class VegetarianPizza extends AbstractPizza{
 		toppingList.add(Toppings.BLACK_OLIVE);
 		toppingList.add(Toppings.MUSHROOM);
 		orderIDCounter = 1 + orderIDCounter;
+		totalPrice = addTopingsToPrice(1.50);
+		updatePizzaPrice();
 		
 	}
 	public VegetarianPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
@@ -25,6 +27,10 @@ public class VegetarianPizza extends AbstractPizza{
 		// TODO Auto-generated constructor stub
 	}
 
+	public VegetarianPizza(VegetarianPizza otherPizza)
+	{
+		super(otherPizza);
+	}
 	@Override
 	public String toString() {
 		return "VegetarianPizza [toppingList=" + Arrays.toString(toppingList.toArray()) + ", priceWithoutToppings=" + priceWithoutToppings
@@ -37,8 +43,8 @@ public class VegetarianPizza extends AbstractPizza{
 	
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{
+		double totalPrice = priceWithoutToppings;
 		//this.priceWithoutToppings = priceWithoutToppings;
-		totalPrice = priceWithoutToppings;
 //		toppingList.add(Toppings.TOMATO);
 //		toppingList.add(Toppings.CHEESE);
 //		toppingList.add(Toppings.BELL_PEPPER);
