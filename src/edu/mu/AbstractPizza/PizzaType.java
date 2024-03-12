@@ -9,7 +9,8 @@ public enum PizzaType {
 	private double toppingPrice;
 	
 	// Constructor
-	private void PizzaTypes(double toppingPrice) {
+	private void PizzaTypes(double toppingPrice) 
+	{
 	    this.toppingPrice = toppingPrice;
 	}
 	

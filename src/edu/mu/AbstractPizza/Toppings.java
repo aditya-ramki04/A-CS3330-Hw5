@@ -11,11 +11,12 @@ public enum Toppings {
 	MUSHROOM(1.50),
 	CANADIAN_BACON(4.00);
 	
-	 private double toppingPrice;
+	private double toppingPrice;
 
-	Toppings(double toppingPrice) {
+	Toppings(double toppingPrice) 
+	{
 	        this.toppingPrice = toppingPrice;
-	    }
+	}
 	
 	// Getter method
 	public double getToppingPrice() 

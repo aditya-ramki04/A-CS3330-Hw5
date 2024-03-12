@@ -38,12 +38,18 @@ public class PizzaOrder
 	
 	public void printPizzaOrderCart(int orderID)
 	{
-        System.out.println("Order ID: " + orderID + " Pizza Order:");
-                
-        for (int i = 0; i < pizzaOrderList.size(); i++) 
-        {
-            System.out.println((i + 1) + ". " + pizzaOrderList.get(i));
-        }
+		System.out.println("All pizzas in Order: " + orderID + ":");
+		if(pizzaOrderList != null) 
+		{
+			for(AbstractPizza pizza : pizzaOrderList) 
+			{
+				if (pizza.getPizzaOrderID() == orderID) 
+				{
+	                System.out.println(pizza.toString());
+				}
+			}
+				
+		}
 	}
 	
 	//Start nmc
@@ -51,6 +57,9 @@ public class PizzaOrder
 	//matches the given parameter and will return pizza if match
 	public AbstractPizza getPizzaByOrderID(int orderID)
 	{
+		
+		
+		
 		for(AbstractPizza pizza : pizzaOrderList) {
 			if(pizza.getPizzaOrderID() == orderID) {
 				return pizza;
@@ -83,13 +92,17 @@ public class PizzaOrder
 		
 		if (pizza != null) {
 	        List<Toppings> toppingList = pizza.getToppingList();
-
-	        if (!toppingList.contains(topping)) {
+	        
+	        if (!toppingList.contains(topping)) 
+	        {
 	            toppingList.add(topping);
 	            pizza.updatePizzaPrice();
-
+	            
+	            
+	            pizza.setToppingList(toppingList);
 	            return true;
-	        } else {
+	        } 
+	        else {
 	            return false;
 	        }
 		}

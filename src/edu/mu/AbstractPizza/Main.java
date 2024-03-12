@@ -16,29 +16,42 @@ public class Main {
        // order.addPizzaToCart(PizzaType.VEGETARIAN);
 
         // Print pizza order cart
-        order.printPizzaOrderCart(1);
+        order.printPizzaOrderCart(0);
 
         // Select cooking strategies for the pizzas in the cart
-        order.selectCookingStrategyByPizzaOrderID(1, CookingStyleType.BRICK_OVEN);
+        order.selectCookingStrategyByPizzaOrderID(0, CookingStyleType.BRICK_OVEN);
         //order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.CONVENTIONAL_OVEN);
 
         // Print list of toppings for a specific pizza order ID
-        order.printListOfToppingsByPizzaOrderID(1);
+        order.printListOfToppingsByPizzaOrderID(0);
+        
+        try {
+            // Checkout and calculate the total bill
+            double totalBill = order.checkout();
+            System.out.println("Total Bill: $" + totalBill);
+        } catch (Exception e) {
+            System.err.println("Error during checkout: " + e.getMessage());
+        }
+
       
     
         // Add new topping to a pizza
-        order.addNewToppingToPizza(1, Toppings.PEPPERONI);
+        order.addNewToppingToPizza(0, Toppings.PEPPERONI);
 
         // Remove topping from a pizza
-        order.removeToppingFromPizza(2, Toppings.BELL_PEPPER);
+        order.removeToppingFromPizza(0, Toppings.CHEESE);
 
         
-        order.printPizzaOrderCart(1);
+        order.printPizzaOrderCart(0);
+        order.printListOfToppingsByPizzaOrderID(0);
+
         
-        order.addNewToppingToPizza(1, Toppings.ITALIAN_SAUSAGE);
+        order.addNewToppingToPizza(0, Toppings.ITALIAN_SAUSAGE);
         
         // Print updated pizza order cart
-        order.printPizzaOrderCart(1);
+        order.printPizzaOrderCart(0);
+        order.printListOfToppingsByPizzaOrderID(0);
+
 
         try {
             // Checkout and calculate the total bill
