@@ -14,10 +14,16 @@ public class HawaiianPizza extends AbstractPizza {
 		toppingList.add(Toppings.CHEESE);
 		toppingList.add(Toppings.PINEAPPLE);
 		orderIDCounter = 1 + orderIDCounter;
+<<<<<<< Updated upstream
 		totalPrice = addTopingsToPrice(2.5);
 		updatePizzaPrice();
 		
 		
+=======
+		totalPrice = addTopingsToPrice(9909);
+		
+		updatePizzaPrice();
+>>>>>>> Stashed changes
 	}
 	
 
@@ -51,18 +57,18 @@ public class HawaiianPizza extends AbstractPizza {
 		for(Toppings t:  toppingList)
 		{
 			totalPrice += t.getToppingPrice();
-			System.out.println(t.getToppingPrice());
+		//	System.out.println(t.getToppingPrice());
 		}
 		return totalPrice;
 	}
 	
 	public double updatePizzaPrice()
 	{
-//		totalPrice = priceWithoutToppings;
-//		for(Toppings t: toppingList)
-//		{
-//			totalPrice += t.getToppingPrice();
-//		}
+		totalPrice = priceWithoutToppings;
+		for(Toppings t: toppingList)
+		{
+			totalPrice += t.getToppingPrice();
+		}
 		totalPrice = addTopingsToPrice(priceWithoutToppings);
 		return totalPrice;
 	}

@@ -1,5 +1,8 @@
 package edu.mu.AbstractPizza;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.mu.PizzaOrder.PizzaOrder;
 
 public class Main {
@@ -10,17 +13,18 @@ public class Main {
 
         // Add pizzas to the cart
         order.addPizzaToCart(PizzaType.HAWAIIAN);
-        order.addPizzaToCart(PizzaType.VEGETARIAN);
+       // order.addPizzaToCart(PizzaType.VEGETARIAN);
 
         // Print pizza order cart
         order.printPizzaOrderCart(1);
 
         // Select cooking strategies for the pizzas in the cart
         order.selectCookingStrategyByPizzaOrderID(1, CookingStyleType.BRICK_OVEN);
-        order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.CONVENTIONAL_OVEN);
+        //order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.CONVENTIONAL_OVEN);
 
         // Print list of toppings for a specific pizza order ID
         order.printListOfToppingsByPizzaOrderID(1);
+<<<<<<< Updated upstream
       
     
         // Add new topping to a pizza
@@ -29,6 +33,13 @@ public class Main {
         // Remove topping from a pizza
         order.removeToppingFromPizza(2, Toppings.BELL_PEPPER);
 
+=======
+        
+        order.printPizzaOrderCart(1);
+        
+        order.addNewToppingToPizza(1, Toppings.ITALIAN_SAUSAGE);
+        
+>>>>>>> Stashed changes
         // Print updated pizza order cart
         order.printPizzaOrderCart(1);
 
