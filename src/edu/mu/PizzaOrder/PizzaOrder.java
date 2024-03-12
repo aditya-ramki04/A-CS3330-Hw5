@@ -63,7 +63,12 @@ public class PizzaOrder
 	//if it was created it will return true otherwise false
 	//it can throw a PizzaCreationException as-well
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-// Fixing process
+		if(pizzaType != null) {
+			AbstractPizza pizza = pizzaFactory.createPizza(pizzaType);
+			pizzaOrderList.add(pizza);
+			return true;
+		}
+		return false;
 		}
 
 

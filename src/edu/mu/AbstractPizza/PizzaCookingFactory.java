@@ -6,8 +6,8 @@ public class PizzaCookingFactory {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public AbstractPizza createPizza(PizzaType pizzaType) throws Exception {
-		AbstractPizza pizza;
+	public AbstractPizza createPizza(PizzaType pizzaType) {
+		AbstractPizza pizza = null;
 		
 		if(pizzaType.HAWAIIAN.equals(pizzaType)) {
 			pizza = new HawaiianPizza();
@@ -17,9 +17,8 @@ public class PizzaCookingFactory {
             pizza = new SupremePizza();
         } else if (pizzaType.VEGETARIAN.equals(pizzaType)) {
             pizza = new VegetarianPizza();
-        }else {
-            throw new Exception("Invalid pizza type: " + pizzaType);
         }
+		
 		return pizza;
 	}
 }
