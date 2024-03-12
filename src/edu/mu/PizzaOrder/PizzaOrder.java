@@ -63,18 +63,9 @@ public class PizzaOrder
 	//if it was created it will return true otherwise false
 	//it can throw a PizzaCreationException as-well
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-			try {
-				AbstractPizza newPizza = pizzaFactory.createPizza(pizzaType);
-				if (newPizza != null) {
-					pizzaOrderList.add(newPizza);
-					return true;
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        return false;
+// Fixing process
 		}
+
 
 
 	//Adds the given topping to the pizza with the specified order ID.
