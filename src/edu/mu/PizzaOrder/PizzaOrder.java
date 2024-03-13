@@ -3,19 +3,30 @@ import java.util.*;
 import edu.mu.AbstractPizza.*;
 import edu.mu.Cooking.*;
 
-
+/**
+ * Represents a pizza order system that manages pizza orders, toppings, cooking strategies, and checkout operations.
+ */
 public class PizzaOrder 
 {
 	private PizzaCookingFactory pizzaFactory;
     private ICookingStrategy cookingStrategy = null;
     private List<AbstractPizza> pizzaOrderList;
     
+    
+    /**
+     * Constructs a new PizzaOrder object with an empty pizza order list.
+     */
     public PizzaOrder() {
         // Instantiate the pizzaFactory, cookingStrategy, and pizzaOrderList attributes
         this.pizzaFactory = new PizzaCookingFactory();
         this.pizzaOrderList = new ArrayList<>();
     }
 	
+    
+    /**
+     * Prints the list of toppings for a pizza order identified by the given order ID.
+     * @param orderID The ID of the pizza order to retrieve toppings for.
+     */
 	public void printListOfToppingsByPizzaOrderID(int orderID)
 	{
 		AbstractPizza pizza = getPizzaByOrderID(orderID);
@@ -36,6 +47,11 @@ public class PizzaOrder
         }
 	}
 	
+	/**
+     * Prints the details of all pizzas in a pizza order identified by the given order ID.
+     * 
+     * @param orderID The ID of the pizza order to print details for.
+     */
 	public void printPizzaOrderCart(int orderID)
 	{
 		System.out.println("All pizzas in Order " + orderID + ":");
@@ -52,9 +68,12 @@ public class PizzaOrder
 		}
 	}
 	
-	//Start nmc
-	//iterates through the list of pizza orders and checks if the oderID
-	//matches the given parameter and will return pizza if match
+	/**
+     * Retrieves the pizza associated with the specified order ID.
+     * 
+     * @param orderID The ID of the pizza order to retrieve.
+     * @return The pizza associated with the given order ID, or null if not found.
+     */
 	public AbstractPizza getPizzaByOrderID(int orderID)
 	{
 		for(AbstractPizza pizza : pizzaOrderList) {
@@ -65,25 +84,30 @@ public class PizzaOrder
 		return null;
 	}
 	
-	//takes PizzaType as an input and uses pizzafactory to create pizza and adds to pizza cart
-	//if it was created it will return true otherwise false
-	//it can throw a PizzaCreationException as-well
-	public boolean addPizzaToCart(PizzaType pizzaType) {
+	/**
+     * Adds a new pizza of the specified type to the pizza order list.
+     * 
+     * @param pizzaType The type of pizza to add.
+     * @return true if the pizza is added successfully, false otherwise.
+     */
+	public boolean addPizzaToCart(PizzaType pizzaType) 
+	{
 		if(pizzaType != null) {
 			AbstractPizza pizza = pizzaFactory.createPizza(pizzaType);
 			pizzaOrderList.add(pizza);
 			return true;
 		}
 		return false;
-		}
+	}
 
 
-
-	//Adds the given topping to the pizza with the specified order ID.
-	//If the topping doesn't already exist in the pizza's topping list,
-	//it is added, and the pizza price is updated.
-	//Returns true if the topping is added successfully; otherwise, returns false.
-	//If the pizza with the given order ID is not found, it also returns false.
+	/**
+     * Adds a new topping to the pizza with the specified order ID.
+     * 
+     * @param orderID The ID of the pizza order.
+     * @param topping The topping to add.
+     * @return true if the topping is added successfully, false otherwise.
+     */
 	public boolean addNewToppingToPizza(int orderID, Toppings topping){
 		AbstractPizza pizza = getPizzaByOrderID(orderID);
 		
@@ -105,9 +129,13 @@ public class PizzaOrder
 		    return false;
 	}
 	
-	//Removes the specified topping from the pizza with the given order ID.
-	//If the topping is successfully removed, updates the pizza price and returns true.
-	//If the topping doesn't exist in the topping list or no pizza is found with the given order ID, returns false.
+	/**
+     * Removes the specified topping from the pizza with the given order ID.
+     * 
+     * @param orderID The ID of the pizza order.
+     * @param topping The topping to remove.
+     * @return true if the topping is removed successfully, false otherwise.
+     */
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
 	    AbstractPizza pizza = getPizzaByOrderID(orderID);
 
@@ -125,10 +153,12 @@ public class PizzaOrder
 	    }
 	    return false;
 	}
-	//End nmc
 	
-	
-	//Aditya R
+	/**
+     * Checks if there are any uncooked pizzas in the pizza order list.
+     * 
+     * @return true if there are uncooked pizzas, false otherwise.
+     */
 	public boolean isThereAnyUncookedPizza()
 	{
 		for (AbstractPizza pizza : pizzaOrderList) {
@@ -140,6 +170,12 @@ public class PizzaOrder
 		
 	}
 	
+	/**
+     * Calculates the total price of all pizzas in the pizza order list and performs checkout.
+     * 
+     * @return The total price of the pizza order.
+     * @throws Exception If there are uncooked pizzas in the order.
+     */
 	public double checkout() throws Exception
 	{
 		if (isThereAnyUncookedPizza()) {
@@ -154,6 +190,13 @@ public class PizzaOrder
 	    return total;
 	}
 	
+	/**
+     * Selects a cooking strategy for the pizza identified by the given order ID.
+     * 
+     * @param orderID The ID of the pizza order.
+     * @param cookingStrategyType The type of cooking strategy to select.
+     * @return true if the cooking strategy is selected successfully, false otherwise.
+     */
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType)
 	{
 		//gets the specific pizzaorder
@@ -185,7 +228,7 @@ public class PizzaOrder
             return false; // Invalid cooking strategy type
 		}
 		
-		return (cookingStrategy.cook(pizza)); //cook function returns a bool value so we goods
-	}
+		return (cookingStrategy.cook(pizza)); //cook function returns a bool value	
+		}
 
 }
