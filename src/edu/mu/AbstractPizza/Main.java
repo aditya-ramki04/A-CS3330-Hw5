@@ -13,6 +13,9 @@ public class Main {
 
         // Add pizzas to the cart
         order.addPizzaToCart(PizzaType.HAWAIIAN);
+        order.addPizzaToCart(PizzaType.VEGETARIAN);
+        order.addPizzaToCart(PizzaType.MARGHERITA);
+        order.addPizzaToCart(PizzaType.SUPREME);
        // order.addPizzaToCart(PizzaType.VEGETARIAN);
 
         // Print pizza order cart
@@ -20,6 +23,9 @@ public class Main {
 
         // Select cooking strategies for the pizzas in the cart
         order.selectCookingStrategyByPizzaOrderID(0, CookingStyleType.BRICK_OVEN);
+        order.selectCookingStrategyByPizzaOrderID(1, CookingStyleType.CONVENTIONAL_OVEN);
+        order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.MICROWAVE);
+        order.selectCookingStrategyByPizzaOrderID(3, CookingStyleType.BRICK_OVEN);
         //order.selectCookingStrategyByPizzaOrderID(2, CookingStyleType.CONVENTIONAL_OVEN);
 
         // Print list of toppings for a specific pizza order ID
@@ -36,13 +42,18 @@ public class Main {
     
         // Add new topping to a pizza
         order.addNewToppingToPizza(0, Toppings.PEPPERONI);
+        order.addNewToppingToPizza(1, Toppings.BELL_PEPPER);
+        order.addNewToppingToPizza(1, Toppings.MUSHROOM);
+        order.addNewToppingToPizza(2, Toppings.TOMATO);
 
         // Remove topping from a pizza
         order.removeToppingFromPizza(0, Toppings.CHEESE);
 
         
         order.printPizzaOrderCart(0);
-        order.printListOfToppingsByPizzaOrderID(0);
+        order.printListOfToppingsByPizzaOrderID(1);
+        
+
 
         
         order.addNewToppingToPizza(0, Toppings.ITALIAN_SAUSAGE);
